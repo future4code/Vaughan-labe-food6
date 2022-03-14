@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-export const goToHome = (navigate) => {
+export const goToHomePage = (navigate) => {
     navigate("/");
 };
 export const goToAddressPage = (navigate) => {
@@ -10,7 +10,7 @@ export const goToAddressPage = (navigate) => {
     navigate(`/address`)
 }
 export const goToCartPage = (navigate) => {
-    navigate(`/Cart`)
+    navigate(`/cart`)
 }
 export const goToDetails = (navigate, id) => {
     navigate(`/details/:id`)
