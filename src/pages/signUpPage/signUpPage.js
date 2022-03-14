@@ -1,6 +1,6 @@
 import React from "react";
 
-export const singUpPage = ()=>{
+export const SignUpPage = ()=>{
     return(
 
         <div>singUpPage</div>
