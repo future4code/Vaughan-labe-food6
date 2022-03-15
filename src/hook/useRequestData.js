@@ -50,7 +50,7 @@ export const addAddress = (form, navigate) => {
         }
       })
     .then((response) => {
-
+      localStorage.setItem("tokenaddress", response.data.token);
       goToHomePage(navigate)
       alert("Endereço cadastrado com sucesso!");
     })
