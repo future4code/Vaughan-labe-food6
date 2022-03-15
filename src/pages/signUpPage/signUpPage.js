@@ -1,38 +1,34 @@
 import { Button, TextField } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hook/useForm";
-import useRequestData, { SignUp } from "../../hook/useRequestData";
+import { SignUp } from "../../hook/useRequestData";
 import { InputContainer, LogoImage, ScreenContainer } from "./styled";
-import { BASE_URL } from "../../constants/urls"
-import logo1 from "../../assets/logo1.png"
-// let senha = document.getElementById('senha');
-// let senhaC = document.getElementById('senhaC');
 
-// function validarSenha() {
-//   if (senha.value != senhaC.value) {
-//     senhaC.setCustomValidity("Senhas diferentes!");
-//     senhaC.reportValidity();
-//     return false;
-//   } else {
-//     senhaC.setCustomValidity("");
-//     return true;
-//   }
-// }
+import logo1 from "../../assets/logo1.png"
 
 
 export const SignUpPage = () => {
     const [form, onChange] = useForm({ name: "", email: "", cpf: "", password: "" })
     const navigate = useNavigate()
-    const onSubmitForm = (event) => {
-        // console.log(event)
-        SignUp(form)
-        event.preventDefault()
+    const [confirmPassword, setconfirmPassword] = useState("")
 
+    const onSubmitForm = (event) => {
+        event.preventDefault()
+        localStorage.getItem("token")
+        if (form.password === confirmPassword) {
+            SignUp(form, navigate)
+          
+        }
+        else
+        alert("Senhas diferentes")
+         
     }
 
+    const onChangeConfirmPassword = (event) => {
+        setconfirmPassword(event.target.value)
 
-
+    }
 
     return (
 
@@ -98,17 +94,17 @@ export const SignUpPage = () => {
                         fullWidth
                         required
                         autoFocus
-                        margin="dense"                        id="senha"
+                        margin="dense" id="senha"
                         type={"password"}
                     ></TextField>
 
                     <TextField
                         placeholder="Confirmar Senha"
                         name={"password"}
-                        onChange={onChange}
+                        onChange={onChangeConfirmPassword}
                         label={"Confirmar Senha"}
                         variant={'outlined'}
-                        value={form.password}
+                        value={confirmPassword}
                         fullWidth
                         required
                         autoFocus
@@ -120,14 +116,14 @@ export const SignUpPage = () => {
 
                     <Button
                         variant={'contained'}
-                        type="submit"
+                        type={"submit"}
                         fullWidth
                         color={'default'}
                     >
                         Criar</Button>
 
-                        
-                    
+
+
                 </form>
 
             </InputContainer>
