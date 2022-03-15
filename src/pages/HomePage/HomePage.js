@@ -1,16 +1,68 @@
+import axios from "axios";
 import React from "react";
-import { useContext } from "react";
-import { GlobalStateContext } from "../../global/globalStateContext";
+import { BASE_URL } from "../../constants/urls";
+import { Card, Buscar, Div, Img, ImgSearch, Name, P, Rectangle, Rectangle2 } from "./styled";
+import { useEffect, useState } from "react";
+import search from "../../assets/search.png"
 
 export const HomePage = () => {
-    const { cart, setCart } = useContext(GlobalStateContext)
-    
+    const [posts, setPosts] = useState([]);
+
+    const listarRestaurantes = () => {
+        const token = localStorage.getItem("token");
+        console.log(token)
+        axios
+        .get(`${BASE_URL}/rappi4B/restaurants`,
+                {
+                    headers: {
+                        auth: token
+                    }
+                })
+        .then(resposta => {
+            setPosts(resposta.data)
+            console.log(resposta.data)
+        })
+        .catch((erro) => {
+            console.log(erro.response)
+        })
+    }
+    useEffect(() => {
+        listarRestaurantes()
+    }, []);
+
+    const cardsRestaurantes = posts.map((post) => {
+        return <Card>
+            <Img src={post.logoUrl}></Img>
+            <Name>{post.name}</Name>
+            <Buscar>
+                <Div>
+                    {post.deliveryTime} min
+                </Div>
+                <Div>
+                    Frete R$: {post.shipping},00
+                </Div>
+            </Buscar>
+        </Card>
+    })
     return (
 
         <div>
-            HomePage
-            <button onClick={()=> console.log(cart)} >ver estado</button>
+            <P>Rappi4</P>
+            <hr></hr>
+            <Buscar>
+                <ImgSearch src={search}></ImgSearch>
+                <Rectangle
 
+                    placeholder="Restaurante"
+                >
+
+                </Rectangle>
+
+            </Buscar>
+
+            <Rectangle2>
+                {cardsRestaurantes}
+            </Rectangle2>
         </div>
     )
 }
