@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../constants/urls";
-import { goToLoginPage} from "../router/coordinator"
+import { goToHomePage, goToLoginPage } from "../router/coordinator"
 import { useNavigate } from "react-router-dom";
 
 const useRequestData = (url) => {
@@ -24,22 +24,16 @@ const useRequestData = (url) => {
 
 export default useRequestData;
 
-export const SignUp = (body, clear, navigate) => {
- 
+export const SignUp = (form, navigate) => {
+  console.log(form)
   axios
-    .post(`${BASE_URL}/rappi4B/signup`)
+    .post(`${BASE_URL}/rappi4B/signup`, form)
     .then((response) => {
-      localStorage.setItem("token", response.data.token)
-      clear()
-      goToLoginPage()
+      goToHomePage(navigate)
       alert("Cadastro realizado com sucesso!");
-      console.log(response.data)
-
     })
     .catch((error) => {
-      console.log(error.response);
-      alert("Ocorreu um erro, tente novamente");
+      alert(error.response.data.message);
     });
-
 
 };
