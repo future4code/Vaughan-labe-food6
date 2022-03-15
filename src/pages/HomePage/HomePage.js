@@ -9,8 +9,9 @@ export const HomePage = () => {
     const [posts, setPosts] = useState([]);
 
     const listarRestaurantes = () => {
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("tokenaddress")
         console.log(token)
+       
         axios
         .get(`${BASE_URL}/rappi4B/restaurants`,
                 {
@@ -18,9 +19,8 @@ export const HomePage = () => {
                         auth: token
                     }
                 })
-        .then(resposta => {
-            setPosts(resposta.data)
-            console.log(resposta.data)
+        .then((resposta) => {
+            setPosts(resposta.data.restaurants)
         })
         .catch((erro) => {
             console.log(erro.response)
@@ -31,7 +31,7 @@ export const HomePage = () => {
     }, []);
 
     const cardsRestaurantes = posts.map((post) => {
-        return <Card>
+        return <Card key={post.id}>
             <Img src={post.logoUrl}></Img>
             <Name>{post.name}</Name>
             <Buscar>
