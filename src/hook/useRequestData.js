@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../constants/urls";
-import { goToHomePage, goToLoginPage } from "../router/coordinator"
+import { goToHomePage, goToAddressPage } from "../router/coordinator"
 import { useNavigate } from "react-router-dom";
 
 const useRequestData = (url) => {
@@ -29,7 +29,9 @@ export const SignUp = (form, navigate) => {
   axios
     .post(`${BASE_URL}/rappi4B/signup`, form)
     .then((response) => {
-      goToHomePage(navigate)
+      localStorage.setItem("token", response.data.token);
+
+      goToAddressPage(navigate)
       alert("Cadastro realizado com sucesso!");
     })
     .catch((error) => {
@@ -37,3 +39,43 @@ export const SignUp = (form, navigate) => {
     });
 
 };
+export const addAddress = (form, navigate) => {
+  const token = localStorage.getItem("token");
+
+  axios
+    .put(`${BASE_URL}/rappi4B/address`, form,
+      {
+        headers: {
+          auth: token
+        }
+      })
+    .then((response) => {
+
+      goToHomePage(navigate)
+      alert("Endereço cadastrado com sucesso!");
+    })
+    .catch((error) => {
+      alert(error.response.data.message);
+    });
+
+};
+// export const Profile = () => {
+//   const token = localStorage.getItem("token");
+  
+//   axios
+//     .get(`${BASE_URL}/rappi4B/profile`,
+//       {
+//         headers: {
+//           auth: token
+//         }
+//       })
+//     .then((response) => {
+      
+//        console.log(response.data)
+//     })
+//     .catch((error) => {
+//       console.log(error.message);
+//     });
+  
+
+// };
