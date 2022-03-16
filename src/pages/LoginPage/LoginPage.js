@@ -12,8 +12,8 @@ export const LoginPage = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    login(form, navigate)
-  }
+    login(form, navigate);
+  };
 
   return (
     <ScreenContainer>
