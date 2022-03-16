@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../constants/urls";
-import { goToHomePage, goToAddressPage } from "../router/coordinator"
+import { goToHomePage, goToAddressPage, goToProfilePage } from "../router/coordinator"
 import { useNavigate } from "react-router-dom";
 
 const useRequestData = (url) => {
@@ -21,6 +21,8 @@ const useRequestData = (url) => {
 
   return [data];
 };
+
+
 
 export default useRequestData;
 
@@ -51,7 +53,7 @@ export const addAddress = (form, navigate) => {
       })
     .then((response) => {
       localStorage.setItem("tokenaddress", response.data.token);
-      goToHomePage(navigate)
+      goToProfilePage(navigate)
       alert("Endereço cadastrado com sucesso!");
     })
     .catch((error) => {
@@ -59,23 +61,26 @@ export const addAddress = (form, navigate) => {
     });
 
 };
-// export const Profile = () => {
-//   const token = localStorage.getItem("token");
-  
-//   axios
-//     .get(`${BASE_URL}/rappi4B/profile`,
-//       {
-//         headers: {
-//           auth: token
-//         }
-//       })
-//     .then((response) => {
-      
-//        console.log(response.data)
-//     })
-//     .catch((error) => {
-//       console.log(error.message);
-//     });
-  
 
-// };
+export const editRegister = (form, navigate) => {
+  const token = localStorage.getItem("tokenaddress");
+
+  axios
+    .put(`${BASE_URL}/rappi4B/profile`, form,
+      {
+        headers: {
+          auth: token
+        }
+      })
+    .then((response) => {
+     
+      goToProfilePage(navigate)
+      alert("Cadastro editado com sucesso!");
+    })
+    .catch((error) => {
+      alert(error.response.data.message);
+    });
+
+};
+
+

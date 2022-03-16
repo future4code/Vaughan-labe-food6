@@ -30,3 +30,6 @@ export const goToSeachPage= (navigate) => {
 export const goToSignup = (navigate) => {
     navigate("/signup")
 }
+export const goToEditAddress = (navigate) => {
+    navigate("/edit-address")
+}

@@ -7,6 +7,7 @@ justify-content: center;
 export const Buscar = styled.div`
 display:flex;
 align-items: center;
+justify-content: center;
 `
 export const Rectangle = styled.input`
   width: 72%;
@@ -14,12 +15,15 @@ export const Rectangle = styled.input`
   padding: 16px 8px 16px 17px;
   border-radius: 2px;
   border: solid 1px #b8b8b8;
+  display: flex;
+
 `
 export const Rectangle2 = styled.div`
     width: 360px;
   height: 196px;
   margin: 50px 0 0;
   padding: 8px 16px 0;
+  display: grid;
 `
 export const ImgSearch = styled.img`
   width: 24px;
