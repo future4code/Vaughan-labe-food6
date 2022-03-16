@@ -3,14 +3,17 @@ import React from "react";
 import { InputContainer, LogoImage, ScreenContainer } from "./Styled";
 import logo1 from "../../assets/logo1.png";
 import { useForm } from "../../hook/useForm";
+import { useNavigate } from "react-router-dom";
+import { login } from "../../services/user";
 
 export const LoginPage = () => {
   const [form, onChange] = useForm({ email: "", password: "" });
+  const navigate = useNavigate();
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log(form);
-  };
+    login(form, navigate)
+  }
 
   return (
     <ScreenContainer>
@@ -51,7 +54,7 @@ export const LoginPage = () => {
             fullWidth
             color={"default"}
           >
-            Criar
+            Login
           </Button>
         </form>
       </InputContainer>
