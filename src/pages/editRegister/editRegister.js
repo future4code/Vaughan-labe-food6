@@ -13,10 +13,10 @@ import { BASE_URL } from "../../constants/urls";
 
 export const EditRegister = () => {
     const [form, onChange] = useForm({ name: "" , email: "", cpf: ""})
-
     const navigate = useNavigate()
+   
     const onSubmitEditRegister = (event) => {
-      console.log(event.target)
+      
         event.preventDefault()
         editRegister(form, navigate)
     }
@@ -26,15 +26,16 @@ export const EditRegister = () => {
             <InputContainer>
             <P> <img src={back} onClick={() => goToProfilePage(navigate)}></img> Editar Cadastro</P>
             
-            <form onSubmit={onSubmitEditRegister}>
+            <form onSubmit={onSubmitEditRegister} autoComplete="on">
 
                 <TextField
-                    placeholder="Nome"
+                    placeholder="Name"
                     name={"name"}
                     onChange={onChange}
                     variant={'outlined'}
                     value={form.name}
                     fullWidth
+                    required
                     autoFocus
                     margin="dense"
 
@@ -50,6 +51,7 @@ export const EditRegister = () => {
                     variant={'outlined'}
                     value={form.email}
                     fullWidth
+                    required
                     autoFocus
                     margin="dense"
 
@@ -63,10 +65,11 @@ export const EditRegister = () => {
                     variant={'outlined'}
                     value={form.cpf}
                     fullWidth
+                    required
                     autoFocus
                     margin="dense"
                 ></TextField>
-
+                <p>*Favor preencher todos os campo</p>
                 <Button
                     variant={'contained'}
                     type={"submit"}

@@ -32,6 +32,7 @@ export const EditAddress = ()=>{
                         variant={'outlined'}
                         value={form.street}
                         fullWidth
+                        required
                         autoFocus
                         margin="dense"
                     >
@@ -44,6 +45,7 @@ export const EditAddress = ()=>{
                         variant={'outlined'}
                         value={form.number}
                         fullWidth
+                        required
                         autoFocus
                         margin="dense"
                     >
@@ -56,6 +58,7 @@ export const EditAddress = ()=>{
                         variant={'outlined'}
                         value={form.complement}
                         fullWidth
+                        required
                         autoFocus
                         margin="dense"
                     >
@@ -68,6 +71,7 @@ export const EditAddress = ()=>{
                         variant={'outlined'}
                         value={form.neighbourhood}
                         fullWidth
+                        required
                         autoFocus
                         margin="dense"
                     >
@@ -80,6 +84,7 @@ export const EditAddress = ()=>{
                         variant={'outlined'}
                         value={form.city}
                         fullWidth
+                        required
                         autoFocus
                         margin="dense"
                     >
@@ -92,10 +97,12 @@ export const EditAddress = ()=>{
                         variant={'outlined'}
                         value={form.state}
                         fullWidth
+                        required
                         autoFocus
                         margin="dense"
                     >
                     </TextField>
+                    <p>*Favor preencher todos os campo</p>
                     <Button
                         variant={'contained'}
                         type={"submit"}
