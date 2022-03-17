@@ -17,7 +17,7 @@ export const EditAddress = ()=>{
       }
     return(
         <div>
-        <P> <img src={back} onClick={() => goToProfilePage(navigate)}></img> Editar endereço</P>
+        <P> <img src={back} alt='navegar' onClick={() => goToProfilePage(navigate)}></img> Editar endereço</P>
         <hr></hr>
         <ScreenContainer>
 

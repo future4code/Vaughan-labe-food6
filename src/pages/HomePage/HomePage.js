@@ -4,8 +4,11 @@ import { BASE_URL } from "../../constants/urls";
 import { Card, Buscar, Div, Img, ImgSearch, Name, P, Rectangle, Rectangle2 } from "./styled";
 import { useEffect, useState } from "react";
 import search from "../../assets/search.png"
+import { useProtectedPage } from "../../hook/useProtectPage";
+
 
 export const HomePage = () => {
+    useProtectedPage()
     const [posts, setPosts] = useState([]);
 
     const listarRestaurantes = () => {
