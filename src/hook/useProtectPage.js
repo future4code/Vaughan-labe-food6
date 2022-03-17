@@ -11,5 +11,5 @@ export const useProtectedPage = () => {
             navigate("/login")
             alert("Faça o login")
         }
-    }, [])
+    }, )
 }

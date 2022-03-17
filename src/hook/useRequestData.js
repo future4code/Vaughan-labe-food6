@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../constants/urls";
-import { goToHomePage, goToAddressPage, goToProfilePage } from "../router/coordinator"
-import { useNavigate } from "react-router-dom";
+import { goToAddressPage, goToProfilePage } from "../router/coordinator"
+
 
 const useRequestData = (url) => {
   const [data, setData] = useState();
