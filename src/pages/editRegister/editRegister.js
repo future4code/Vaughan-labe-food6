@@ -1,15 +1,13 @@
-import React, { Profiler, useEffect } from "react";
+import React from "react";
 import back from "../../assets/back.png"
 import { P } from "./styled";
 import { InputContainer, ScreenContainer } from "./styled";
 import { Button, TextField } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hook/useForm";
-import { editRegister, Profile } from "../../hook/useRequestData";
+import { editRegister } from "../../hook/useRequestData";
 import { goToProfilePage } from "../../router/coordinator";
-import { useState } from "react";
-import axios from "axios";
-import { BASE_URL } from "../../constants/urls";
+
 
 export const EditRegister = () => {
     const [form, onChange] = useForm({ name: "" , email: "", cpf: ""})
@@ -24,7 +22,7 @@ export const EditRegister = () => {
     return (
         <ScreenContainer>
             <InputContainer>
-            <P> <img src={back} onClick={() => goToProfilePage(navigate)}></img> Editar Cadastro</P>
+            <P> <img src={back} alt='imagem-navegar'  onClick={() => goToProfilePage(navigate)}></img> Editar Cadastro</P>
             
             <form onSubmit={onSubmitEditRegister}>
 

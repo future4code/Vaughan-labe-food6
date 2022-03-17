@@ -21,7 +21,7 @@ export const AddressPage = () => {
 
             <InputContainer>
 
-                <h2> <img src={back}></img> Meu endereço</h2>
+                <h2> <img src={back} alt='navegar' ></img> Meu endereço</h2>
                 <form onSubmit={onSubmitAddress}>
                     <TextField
                         placeholder="Logradouro"
