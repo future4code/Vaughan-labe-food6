@@ -1,5 +1,4 @@
-
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const InputContainer = styled.div`
   display: flex;
@@ -13,12 +12,12 @@ export const InputContainer = styled.div`
 export const ScreenContainer = styled.div`
   display: flex;
   flex-direction: column;
-   align-items: center;
-   width: 100vw;
-   margin-bottom: 20px;
+  align-items: center;
+  width: 100vw;
+  margin-bottom: 20px;
 `;
 
 export const LogoImage = styled.img`
   width: 70vw;
   max-width: 350px;
-`
+`;

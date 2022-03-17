@@ -9,6 +9,7 @@ import { LoginPage } from "../pages/LoginPage/LoginPage"
 import { ProfilePage } from "../pages/profilePage/profilePage";
 import { SeachPage } from "../pages/searchPage/searchPage"
 import { SignUpPage } from "../pages/signUpPage/signUpPage"
+import { EditAddress } from "../pages/editRegister/editAddress";
 
 const Router = () => {
     return (
@@ -23,6 +24,7 @@ const Router = () => {
                 <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/seach" element={<SeachPage />} />
                 <Route path="/signup" element={<SignUpPage />} />
+                <Route path="/edit-address" element={<EditAddress />} />
 
 
             </Routes>
