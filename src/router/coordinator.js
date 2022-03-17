@@ -1,6 +1,6 @@
 
 export const goToHomePage = (navigate) => {
-    navigate("/");
+    navigate("/home");
 };
 export const goToAddressPage = (navigate) => {
 
@@ -16,7 +16,7 @@ export const goToEditRegister = (navigate) => {
     navigate("/edit-register")
 }
 export const goToLoginPage = (navigate) => {
-    navigate("/login")
+    navigate("/")
 }
 export const goToProfilePage = (navigate) => {
     navigate("/profile")
