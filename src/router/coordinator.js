@@ -10,7 +10,7 @@ export const goToCartPage = (navigate) => {
     navigate(`/cart`)
 }
 export const goToDetails = (navigate, id) => {
-    navigate(`/details/:id`)
+    navigate(`/details/${id}`)
 }
 export const goToEditRegister = (navigate) => {
     navigate("/edit-register")

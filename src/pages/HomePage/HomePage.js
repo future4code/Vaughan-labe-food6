@@ -5,15 +5,16 @@ import { Card, Buscar, Div, Img, ImgSearch, Name, P, Rectangle, Rectangle2 } fro
 import { useEffect, useState } from "react";
 import search from "../../assets/search.png"
 import { useProtectedPage } from "../../hook/useProtectPage";
-
+import { goToDetails } from "../../router/coordinator";
+import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
     useProtectedPage()
     const [posts, setPosts] = useState([]);
-
+    const navigate = useNavigate()
     const listarRestaurantes = () => {
         const token = localStorage.getItem("tokenaddress")
-        console.log(token)
+    
        
         axios
         .get(`${BASE_URL}/rappi4B/restaurants`,
@@ -32,10 +33,14 @@ export const HomePage = () => {
     useEffect(() => {
         listarRestaurantes()
     }, []);
+    const onClickCard = (id) => {
+
+        goToDetails(navigate, id)
+      }
 
     const cardsRestaurantes = posts.map((post) => {
         return <Card key={post.id}>
-            <Img src={post.logoUrl}></Img>
+            <a onClick={()=> onClickCard(post.id)}><Img src={post.logoUrl}></Img></a>
             <Name>{post.name}</Name>
             <Buscar>
                 <Div>
