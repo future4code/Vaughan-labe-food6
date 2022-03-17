@@ -5,7 +5,7 @@ export const useProtectedPage = () => {
     const navigate = useNavigate()
    
     useEffect(() => {
-        const token = window.localStorage.getItem('token')
+        const token = window.localStorage.getItem('tokenaddress')
         
         if(token === null){
             navigate("/login")
