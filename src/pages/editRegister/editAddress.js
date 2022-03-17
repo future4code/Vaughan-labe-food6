@@ -102,7 +102,7 @@ export const EditAddress = ()=>{
                         margin="dense"
                     >
                     </TextField>
-                    <p>*Favor preencher todos os campo</p>
+                    <p>*Favor preencher todos os campos</p>
                     <Button
                         variant={'contained'}
                         type={"submit"}
