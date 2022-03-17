@@ -4,13 +4,14 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "../../constants/urls";
 import axios from "axios";
-import { Buscar, Card, Card2, Conteiner, Conteiner2, Div, Div2, Img, Name, P } from "./styled";
+import { Buscar, Card, Card2, Conteiner, Conteiner2, Description, Div, Div2, Img, Img2, Name, Name2, P, Price, Rectangle3 } from "./styled";
 import { goToHomePage } from "../../router/coordinator";
 import back from "../../assets/back.png"
 
 export const DetailsPage = (id) => {
     const params = useParams()
     const [restaurant, setRestaurant] = useState({})
+    const [products, setProducts] = useState([])
     const navigate = useNavigate()
     const getDetails = (id, navigate) => {
         const token = localStorage.getItem("tokenaddress");
@@ -24,6 +25,7 @@ export const DetailsPage = (id) => {
                 })
             .then((response) => {
                 setRestaurant(response.data.restaurant)
+                setProducts(response.data.restaurant.products)
                 console.log(response.data.restaurant)
             })
             .catch((error) => {
@@ -35,11 +37,22 @@ export const DetailsPage = (id) => {
     useEffect(() => {
         getDetails()
     }, [])
-
-
+   
+    const cardsProducts = products.map((product) => {
+        return <Card2 key={product.id}>
+            <Rectangle3>
+                <Img2 src={product.photoUrl}></Img2>
+                <Name2>{product.name}</Name2>
+                <Description>{product.description}</Description>
+                <Price> R$: {product.price},00  <button>Adicionar</button></Price>
+               
+            </Rectangle3>
+           
+        </Card2>
+    })
 
     return (
-        
+
         <div>
             <P> <img src={back} alt='navegar' onClick={() => goToHomePage(navigate)}></img> Restaurante</P>
             <hr></hr>
@@ -67,9 +80,10 @@ export const DetailsPage = (id) => {
             </Conteiner>
             <p>Principais</p>
             <hr></hr>
-            
+            {cardsProducts}
+
         </div>
-        
+
 
     )
 }
