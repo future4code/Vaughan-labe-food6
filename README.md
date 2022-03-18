@@ -43,6 +43,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -[Axios](https://axios-http.com/)
 -[Javascript](https://www.javascript.com/)
 -[Material-UI](https://v4.mui.com/pt/)
+-[HTML]
+-[CSS]
 
 
 
