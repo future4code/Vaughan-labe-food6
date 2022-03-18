@@ -57,6 +57,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - Paulo Tarso
 
 ---
-
-Good Luck 🤝
 link para o trello https://trello.com/b/BRnf6zd0/labfood
+---
+Good Luck 🤝
+
