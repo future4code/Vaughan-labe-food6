@@ -6,6 +6,7 @@ import { Endereco, P, Rectangle, Rua } from "./styled";
 import edit from "../../assets/edit.png"
 import { goToEditAddress, goToEditRegister } from "../../router/coordinator";
 import { useNavigate } from "react-router-dom";
+import { Footer } from "../../components/Footer";
 
 export const ProfilePage = () => {
     const navigate = useNavigate()
@@ -48,6 +49,7 @@ export const ProfilePage = () => {
                 <Endereco>Endereço cadastrado</Endereco>
                 <Rua>{profile.address}</Rua>
             </Rectangle>
+            <Footer/>
         </div>
     )
 }
