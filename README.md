@@ -59,3 +59,4 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ---
 
 Good Luck 🤝
+link para o trello https://trello.com/b/BRnf6zd0/labfood
