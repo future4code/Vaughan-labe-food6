@@ -8,7 +8,7 @@ export const useProtectedPage = () => {
         const token = window.localStorage.getItem('token')
         
         if(token === null){
-            navigate("/login")
+            navigate("/")
             alert("Faça o login")
         }
     }, )
