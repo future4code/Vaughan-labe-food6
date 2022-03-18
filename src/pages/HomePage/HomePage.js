@@ -8,6 +8,7 @@ import { useProtectedPage } from "../../hook/useProtectPage";
 import { goToDetails } from "../../router/coordinator";
 import { useNavigate } from "react-router-dom";
 import { Filter } from "../../components/filter/Filter";
+import { Footer } from "../../components/Footer";
 
 export const HomePage = () => {
     useProtectedPage()
@@ -81,6 +82,7 @@ export const HomePage = () => {
             <Rectangle2>
                 {cardsRestaurantes}
             </Rectangle2>
+            <Footer/>
         </div>
     )
 }

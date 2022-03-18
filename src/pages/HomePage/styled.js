@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const P = styled.p`
 display:flex;
-justify-content: center;
+justify-content: center;  
 `
 export const Buscar = styled.div`
 display:flex;

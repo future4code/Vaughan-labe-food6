@@ -1,8 +1,13 @@
 import React from "react";
+import { Footer } from "../../components/Footer";
 
 export const CartPage = ()=>{
     return(
 
-        <div>CardPage</div>
+        <div>
+
+<Footer/>
+        </div>
+
     )
 }
