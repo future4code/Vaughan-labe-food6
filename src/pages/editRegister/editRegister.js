@@ -1,8 +1,8 @@
 import React from "react";
 import back from "../../assets/back.png"
 import { P } from "./styled";
-import { InputContainer, ScreenContainer } from "./styled";
-import { Button, TextField } from "@material-ui/core";
+import { Button, InputContainer, ScreenContainer } from "./styled";
+import {  TextField } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hook/useForm";
 import { editRegister } from "../../hook/useRequestData";

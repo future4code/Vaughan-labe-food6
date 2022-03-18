@@ -15,7 +15,7 @@ export const DetailsPage = (id) => {
     const navigate = useNavigate()
     const getDetails = (id, navigate) => {
         const token = localStorage.getItem("tokenaddress");
-        console.log(params.id)
+      
         axios
             .get(`${BASE_URL}/rappi4B/restaurants/${params.id}`,
                 {
@@ -26,7 +26,7 @@ export const DetailsPage = (id) => {
             .then((response) => {
                 setRestaurant(response.data.restaurant)
                 setProducts(response.data.restaurant.products)
-                console.log(response.data.restaurant)
+                
             })
             .catch((error) => {
                 alert(error.response.data.message);
@@ -38,13 +38,17 @@ export const DetailsPage = (id) => {
         getDetails()
     }, [])
    
+    const addToCart = (event) => {
+       
+    }
+
     const cardsProducts = products.map((product) => {
         return <Card2 key={product.id}>
             <Rectangle3>
                 <Img2 src={product.photoUrl}></Img2>
                 <Name2>{product.name}</Name2>
                 <Description>{product.description}</Description>
-                <Price> R$: {product.price},00  <button>Adicionar</button></Price>
+                <Price> R$: {product.price} reais <button onClick={addToCart}>Adicionar</button></Price>
                
             </Rectangle3>
            

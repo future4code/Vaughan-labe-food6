@@ -76,14 +76,16 @@ export const HomePage = () => {
                     cards={cardsRestaurantes}
                     setSearchRestaurant={setSearchRestaurant}
                     searchRestaurant={searchRestaurant}
-                />
+                ></Filter>
             </Buscar>
 
             <Rectangle2>
                 {cardsRestaurantes}
             </Rectangle2>
+            
             <Footer/>
         </div>
+
     )
 }
 
