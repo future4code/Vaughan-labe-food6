@@ -1,9 +1,9 @@
-import { Button, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hook/useForm";
 import { SignUp } from "../../hook/useRequestData";
-import { InputContainer, LogoImage, ScreenContainer } from "./styled";
+import { Button, InputContainer, LogoImage, ScreenContainer } from "./styled";
 
 import logo1 from "../../assets/logo1.png"
 
@@ -34,8 +34,9 @@ export const SignUpPage = () => {
 
         <ScreenContainer>
             <InputContainer>
-                <h2>Cadastre sua conta</h2>
+                
                 <LogoImage src={logo1} />
+                <h3>Cadastrar</h3>
                 <form onSubmit={onSubmitForm}>
 
                     <TextField

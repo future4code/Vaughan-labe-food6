@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
-import  avatar  from "../assets/avatar.png"
+import avatar from "../assets/avatar.png"
 import { goToCartPage, goToHomePage, goToProfilePage } from "../router/coordinator";
 import homepage2x from "../assets/homepage2x.png"
 import shoppingcart2x from "../assets/shoppingcart2x.png"
@@ -11,15 +11,15 @@ export const Footerbarr = styled.div`
  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   position: fixed;
-    bottom: 0;
+  margin-top: 20px;
     background-color: #ffff;
- border-top:1px solid grey ;
+  border-top:1px solid grey ;
     width: 100%;
-     height: 8vh;
+     height: 30px;
     text-align: center;
     align-items: center;
    justify-items: center;
-
+  bottom: 0;
 `;
 
 export const ImgFooter = styled.img`
@@ -39,26 +39,26 @@ export const DivImage = styled.div`
 `;
 
 export const Footer = () => {
-    const navigate = useNavigate()
-    return (
-        <Footerbarr>
-            <ImgFooter src={homepage2x}
-               onClick={() => goToHomePage(navigate)}  
-            ></ImgFooter>
+  const navigate = useNavigate()
+  return (
+    <Footerbarr>
+      <ImgFooter src={homepage2x}
+        onClick={() => goToHomePage(navigate)}
+      ></ImgFooter>
 
-            <ImgFooter src={shoppingcart2x}
-             onClick={() => goToCartPage(navigate)}  
-            ></ImgFooter>
+      <ImgFooter src={shoppingcart2x}
+        onClick={() => goToCartPage(navigate)}
+      ></ImgFooter>
 
-            <ImgFooter src={avatar}
-             onClick={() => goToProfilePage(navigate)}  
-            ></ImgFooter>
-
-
-        </Footerbarr>
+      <ImgFooter src={avatar}
+        onClick={() => goToProfilePage(navigate)}
+      ></ImgFooter>
 
 
-    )
+    </Footerbarr>
+
+
+  )
 
 
 

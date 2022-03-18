@@ -19,7 +19,13 @@ export const ScreenContainer = styled.div`
 
 export const LogoImage = styled.img`
   width: 70vw;
-  max-width: 350px;
+  max-width: 200px;
+`
+export const Button = styled.button`
+   width: 328px;
+  height: 42px;
+  padding: 12px 16px;
+  background-color: #e86e5a;
 `
 
 

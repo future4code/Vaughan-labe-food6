@@ -1,10 +1,11 @@
-import { Button, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import React from "react";
-import { InputContainer, LogoImage, ScreenContainer } from "./Styled";
+import { Button, InputContainer, LogoImage, ScreenContainer } from "./Styled";
 import logo1 from "../../assets/logo1.png";
 import { useForm } from "../../hook/useForm";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../services/user";
+import {goToSignup} from "../../router/coordinator"
 
 export const LoginPage = () => {
   const [form, onChange] = useForm({ email: "", password: "" });
@@ -56,6 +57,8 @@ export const LoginPage = () => {
           >
             Login
           </Button>
+          <p>Não possui cadastro? <a onClick={()=> goToSignup(navigate)}> <b>Clique aqui.</b></a> </p>
+          
         </form>
       </InputContainer>
     </ScreenContainer>

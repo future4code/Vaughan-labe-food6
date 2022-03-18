@@ -1,10 +1,11 @@
 import React from "react";
 import { useForm } from "../../hook/useForm";
 import { useNavigate } from "react-router-dom";
-import { InputContainer, ScreenContainer } from "./styled";
-import { Button, TextField } from "@material-ui/core";
+import { Button, InputContainer, ScreenContainer } from "./styled";
+import { TextField } from "@material-ui/core";
 import back from "../../assets/back.png"
 import { addAddress } from "../../hook/useRequestData";
+import { goToSignup } from "../../router/coordinator";
 
 export const AddressPage = () => {
 
@@ -18,10 +19,10 @@ export const AddressPage = () => {
     }
     return (
         <ScreenContainer>
+                <h3> <img src={back} alt='navegar' onClick={()=> goToSignup(navigate)}></img> Meu endereço</h3>
 
             <InputContainer>
 
-                <h2> <img src={back} alt='navegar' ></img> Meu endereço</h2>
                 <form onSubmit={onSubmitAddress}>
                     <TextField
                         placeholder="Logradouro"

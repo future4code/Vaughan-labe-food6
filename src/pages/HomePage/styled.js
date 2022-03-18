@@ -21,9 +21,10 @@ export const Rectangle = styled.input`
 export const Rectangle2 = styled.div`
     width: 360px;
   height: 196px;
-  margin: 50px 0 0;
+  margin: 10px 0 10px;
   padding: 8px 16px 0;
   display: grid;
+
 `
 export const ImgSearch = styled.img`
   width: 24px;
@@ -32,7 +33,7 @@ export const ImgSearch = styled.img`
   object-fit: contain;
 `
 export const Card = styled.form`
-     width: 328px;
+  width: 328px;
   height: 188px;
   padding: 0 0 16px;
   border-radius: 8px;
