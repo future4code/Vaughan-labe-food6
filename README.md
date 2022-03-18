@@ -57,6 +57,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - Paulo Tarso
 
 ---
+link para o surge :  lopsided-bear.surge.sh
+
 link para o trello https://trello.com/b/BRnf6zd0/labfood
 ---
 Good Luck 🤝
