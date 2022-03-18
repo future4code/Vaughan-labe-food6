@@ -7,11 +7,15 @@ import search from "../../assets/search.png"
 import { useProtectedPage } from "../../hook/useProtectPage";
 import { goToDetails } from "../../router/coordinator";
 import { useNavigate } from "react-router-dom";
+import { Filter } from "../../components/filter/Filter";
 
 export const HomePage = () => {
     useProtectedPage()
     const [posts, setPosts] = useState([]);
+    const [searchRestaurant, setSearchRestaurant] = useState("")
+    const [searchfilter, setSearchfilter] = useState(false)
     const navigate = useNavigate()
+
     const listarRestaurantes = () => {
         const token = localStorage.getItem("tokenaddress")
     
@@ -37,8 +41,16 @@ export const HomePage = () => {
 
         goToDetails(navigate, id)
       }
-
-    const cardsRestaurantes = posts.map((post) => {
+    const filteredPosts = posts.filter((post) => {
+        if (!searchRestaurant) {
+            return true
+        }
+        if (searchfilter) {
+            return false
+        }
+        return post.name.toLowerCase().includes(searchRestaurant.toLowerCase())
+    })
+    const cardsRestaurantes = filteredPosts.map((post) => {
         return <Card key={post.id}>
             <a onClick={()=> onClickCard(post.id)}><Img src={post.logoUrl}></Img></a>
             <Name>{post.name}</Name>
@@ -59,13 +71,11 @@ export const HomePage = () => {
             <hr></hr>
             <Buscar>
                 <ImgSearch src={search}></ImgSearch>
-                <Rectangle
-
-                    placeholder="Restaurante"
-                >
-
-                </Rectangle>
-
+                <Filter
+                    cards={cardsRestaurantes}
+                    setSearchRestaurant={setSearchRestaurant}
+                    searchRestaurant={searchRestaurant}
+                />
             </Buscar>
 
             <Rectangle2>
