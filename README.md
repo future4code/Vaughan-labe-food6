@@ -38,11 +38,11 @@ Além disto é bom ter um editor para trabalhar com o código como [VsCode](http
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
--[React](https://pt-br.reactjs.org/)
--[Styled-components](https://styled-components.com/)
--[Axios](https://axios-http.com/)
--[Javascript](https://www.javascript.com/)
--[Material-UI](https://v4.mui.com/pt/)
+- [React](https://pt-br.reactjs.org/)
+- [Styled-components](https://styled-components.com/)
+- [Axios](https://axios-http.com/)
+- [Javascript](https://www.javascript.com/)
+- [Material-UI](https://v4.mui.com/pt/)
 - HTML
 - CSS
 
