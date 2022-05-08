@@ -20,7 +20,7 @@ export const HomePage = () => {
     const navigate = useNavigate()
 
     const listarRestaurantes = () => {
-        const token = localStorage.getItem("tokenaddress")
+        const token = localStorage.getItem("token")
 
 
         axios

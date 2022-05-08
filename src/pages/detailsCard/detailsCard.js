@@ -51,7 +51,7 @@ export const DetailsPage = (id) => {
     }
 
     const getDetails = (id, navigate) => {
-        const token = localStorage.getItem("tokenaddress");
+        const token = localStorage.getItem("token");
 
         axios
             .get(`${BASE_URL}/rappi4B/restaurants/${params.id}`,
