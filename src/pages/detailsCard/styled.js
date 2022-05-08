@@ -9,6 +9,15 @@ display:flex;
 align-items: center;
 justify-content: center;
 `
+export const ContainerInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 1vh;
+`
+export const ContainerBTT = styled.div`
+  display: flex;
+`
+
 export const Rectangle = styled.input`
   width: 72%;
   height: 56%;
@@ -18,51 +27,55 @@ export const Rectangle = styled.input`
   display: flex;
 
 `
-export const Rectangle2 = styled.div`
-    width: 360px;
-  height: 196px;
-  margin: 50px 0 0;
-  padding: 8px 16px 0;
-  display: grid;
+export const HeaderCard = styled.div`
+border: solid 1px #b8b8b8;
+width: 80%;
+height: 150px;
+display:flex;
+margin: 1vw;
+justify-content: space-between;
+align-items: flex-end;
 `
+
+export const Produto = styled.div`
+  width: 90%;
+  height: 150px;
+  display:flex;
+  align-items: center;
+`
+export const ButtonADD = styled.button`
+
+  border-radius: 10px 0 0 0;
+  border: 1px gray solid;
+`
+
 export const Rectangle3 = styled.div`
-   width: 308px;
-  height: 112px;
-  margin: 7px 0 0;
-  padding: 18px 0 0 23px;
+  width: 80%;
   border-radius: 8px;
   border: solid 1px #b8b8b8;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-content: space-between;
-  justify-content: space-between;
 `
-
 export const ImgSearch = styled.img`
   width: 24px;
   height: 24px;
   margin: 0 15.3px 0 0;
-  object-fit: contain;
+
 `
-export const Img2 = styled.img`
-   width: 97px;
-  height: 112.6px;
-  object-fit: contain;
-  
+export const ProdutoIMG = styled.img`
+  object-fit: cover; 
+  width: 40%;
+  height: 100%;  
 `
-export const Card = styled.form`
-     width: 328px;
-  height: 188px;
-  padding: 0 0 16px;
-  
+export const Card = styled.div`
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  width: 80%;
 
 `
 export const Price = styled.p`
-  width: 108px;
-  height: 19px;
-  margin: 6px 17px 15px 10px;
-  font-family: Roboto;
   font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
@@ -74,18 +87,12 @@ export const Price = styled.p`
   flex-direction: column;
   flex-wrap:wrap;
 `
-export const Card2 = styled.form`
-  width: 360px;
-  height: 120px;
-  margin: 8px 0 0;
-  padding: 0 16px;
-  display: flex;
+export const Card2 = styled.div`
+   justify-content: center;
+    display: flex;
+    align-items: center;
 `
-export const Description = styled.form`
-  width: 198px;
-  height: 30px;
-  margin: 6px 17px 6px 0;
-  font-family: Roboto;
+export const Description = styled.div`
   font-size: 14px;
   font-weight: normal;
   font-stretch: normal;
@@ -93,13 +100,8 @@ export const Description = styled.form`
   line-height: normal;
   letter-spacing: -0.34px;
   color: #b8b8b8;
-
 `
-export const Name2 = styled.form`
-  width: 166px;
-  height: 18px;
-  margin: 0 49px 6px 0;
-  font-family: Roboto;
+export const Name2 = styled.div`
   font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
@@ -107,21 +109,27 @@ export const Name2 = styled.form`
   line-height: normal;
   letter-spacing: -0.39px;
   color: var(--dark-peach);
+  color: #e86e5a;
+`
+
+export const DivImage = styled.div`
+  width: 100%;
+  height: 100px;
+ 
+  display:flex;
+  justify-content: center;
 
 `
+
 export const Img = styled.img`
-
-width: 328px;
-  height: 120px;
-  margin: 17px 16px 12px;
-  object-fit: contain;
-
+  object-fit: cover; 
+  width: 100%;
+  height:100%;
+  border-radius: 10px 10px 0 0;
+  
 `
 export const Name = styled.p`
- width: 296px;
-  height: 18px;
-  margin: 12px 16px 4px;
-  font-family: Roboto;
+
   font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
@@ -131,29 +139,24 @@ export const Name = styled.p`
   color: #e86e5a;
 `
 export const Div = styled.p`
-  width: 148px;
-  height: 18px;
-  margin: 4px 8px 0 16px;
+
   font-family: Roboto;
   font-size: 16px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.39px;
   color: #b8b8b8;
  
 `
 export const Conteiner = styled.div`
   display: flex;
   justify-content: center;
-  width: 360px;
-  height: 300px;
+  margin: 10px;
+ 
 `
+
+export const Itens = styled.div`
+  margin: 10px;
+`
+
 export const Div2 = styled.div`
-width: 328px;
-  height: 18px;
-  margin: 10px 16px 16px;
   font-family: Roboto;
   font-size: 16px;
   font-weight: normal;
@@ -162,4 +165,5 @@ width: 328px;
   line-height: normal;
   letter-spacing: -0.39px;
   color: #b8b8b8;
+  text-align:center;
 `

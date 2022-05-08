@@ -1,15 +1,16 @@
+import { ThemeProvider } from '@mui/material';
 import React from 'react';
 import Router from '../src/router/Router';
-import { Footer } from './components/Footer';
 import GlobalState from './global/globalState';
-
+import { themeMAIN } from '../src/constants/theme'
 
 function App() {
   return (
-    <GlobalState>
-      <Router />
-  
-    </GlobalState>
+    <ThemeProvider theme={themeMAIN} >
+      <GlobalState>
+        <Router />
+      </GlobalState>
+    </ThemeProvider>
   );
 }
 

@@ -9,6 +9,10 @@ export const InputContainer = styled.div`
   margin-bottom: 20px;
 `;
 
+export const Clique = styled.a`
+  cursor: pointer;
+`
+
 export const ScreenContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,8 +26,10 @@ export const LogoImage = styled.img`
   max-width: 350px;
 `;
 export const Button = styled.button`
-   width: 328px;
+   width: 100%;
   height: 42px;
+  border-radius: 10px;
+  border: 0;
   padding: 12px 16px;
   background-color: #e86e5a;
 `

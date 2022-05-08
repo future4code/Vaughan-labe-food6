@@ -1,26 +1,16 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import * as React from 'react';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import FolderIcon from '@mui/icons-material/Folder';
+import RestoreIcon from '@mui/icons-material/Restore';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { goToHomePage, goToCartPage, goToProfilePage } from '../router/coordinator';
 import styled from 'styled-components';
-import avatar from "../assets/avatar.png"
-import { goToCartPage, goToHomePage, goToProfilePage } from "../router/coordinator";
-import homepage2x from "../assets/homepage2x.png"
-import shoppingcart2x from "../assets/shoppingcart2x.png"
-
-
-export const Footerbarr = styled.div`
- display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  position: fixed;
-  margin-top: 20px;
-    background-color: #ffff;
-  border-top:1px solid grey ;
-    width: 100%;
-     height: 30px;
-    text-align: center;
-    align-items: center;
-   justify-items: center;
-  bottom: 0;
-`;
+import homepage2x from '../assets/icons8-casinha-de-cachorro-54.png'
+import shoppingcart2x from '../assets/shoppingcart2x.png'
+import avatar from '../assets/avatar.png'
 
 export const ImgFooter = styled.img`
 width: 27px;
@@ -28,38 +18,50 @@ width: 27px;
   object-fit: contain;
   /* background-color: #B8B8B8; */  
   align-items: center;
- 
- 
-`;
-export const DivImage = styled.div`
- width: 26.1px;
-  height: 13.5px;
-  /* background-color: #b8b8b8; */
-  align-items: center;
-`;
+`
 
-export const Footer = () => {
+export const Footerbarr = styled.div`
+ display: flex;
+ justify-content: center;
+  position: fixed;
+  margin-top: 20px;
+    background-color: #ffff;
+  border-top:1px solid grey ;
+    width: 100%;
+     height: 70px;
+    text-align: center;
+    align-items: center;
+   justify-items: center;
+  bottom: 0;
+`
+
+export const Footer = (props) => {
+  const [value, setValue] = React.useState(props.tela);
+
   const navigate = useNavigate()
+
   return (
+
     <Footerbarr>
-      <ImgFooter src={homepage2x}
-        onClick={() => goToHomePage(navigate)}
-      ></ImgFooter>
+      <BottomNavigation sx={{ width: 500 }} value={value} position='fixed'
+        onChange={(event, newValue) => setValue(newValue)}>
 
-      <ImgFooter src={shoppingcart2x}
-        onClick={() => goToCartPage(navigate)}
-      ></ImgFooter>
-
-      <ImgFooter src={avatar}
-        onClick={() => goToProfilePage(navigate)}
-      ></ImgFooter>
-
-
+        <BottomNavigationAction
+          label="Home"
+          icon={<ImgFooter src={homepage2x}></ImgFooter>}
+          onClick={() => navigate('/home')}
+        />
+        <BottomNavigationAction
+          label="Carrinho"
+          icon={<ImgFooter src={shoppingcart2x}></ImgFooter>}
+          onClick={() => navigate('/cart')}
+        />
+        <BottomNavigationAction
+          label="Perfil"
+          icon={<ImgFooter src={avatar}></ImgFooter>}
+          onClick={() => navigate('/profile')}
+        />
+      </BottomNavigation>
     </Footerbarr>
-
-
-  )
-
-
-
+  );
 }

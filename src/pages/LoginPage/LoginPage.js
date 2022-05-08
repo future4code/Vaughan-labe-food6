@@ -1,20 +1,25 @@
 import { TextField } from "@material-ui/core";
 import React from "react";
-import { Button, InputContainer, LogoImage, ScreenContainer } from "./Styled";
+import { Button, Clique, InputContainer, LogoImage, ScreenContainer } from "./Styled";
 import logo1 from "../../assets/logo1.png";
 import { useForm } from "../../hook/useForm";
-import { useNavigate } from "react-router-dom";
+import { useHistory, useNavigate } from "react-router-dom";
 import { login } from "../../services/user";
-import {goToSignup} from "../../router/coordinator"
+import { goToSignup } from "../../router/coordinator"
+import LoadingButton from '@mui/lab/LoadingButton';
 
 export const LoginPage = () => {
   const [form, onChange] = useForm({ email: "", password: "" });
   const navigate = useNavigate();
 
-  const onSubmit = (event) => {
+  const [loading, setLoading] = React.useState(false);
+
+  const onSubmit = async (event) => {
+    setLoading(true);
     event.preventDefault();
-    login(form, navigate);
-  };
+    await login(form, navigate); 
+    setLoading(false);
+  }
 
   return (
     <ScreenContainer>
@@ -48,19 +53,20 @@ export const LoginPage = () => {
             id="senha"
             type={"password"}
           />
-
-          <Button
-            variant={"contained"}
-            type={"submit"}
+          <LoadingButton
+            loading={loading}
+            loadingPosition="end"
+            variant="contained"
             fullWidth
-            color={"default"}
+            type="submit"
           >
-            Login
-          </Button>
-          <p>Não possui cadastro? <a onClick={()=> goToSignup(navigate)}> <b>Clique aqui.</b></a> </p>
-          
+            Entrar
+          </LoadingButton>
+
+          <p>Não possui cadastro? <Clique onClick={() => goToSignup(navigate)}> <b>Clique aqui.</b></Clique> </p>
+
         </form>
       </InputContainer>
-    </ScreenContainer>
+    </ScreenContainer >
   );
 };

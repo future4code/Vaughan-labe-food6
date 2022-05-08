@@ -5,15 +5,24 @@ display:flex;
 justify-content: center;
 `
 export const Rectangle = styled.div`
-  width: 360px;
-  height: 76px;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
   margin: 16px 0;
   padding: 16px;
   background-color: #eee;
 `
+export const Container = styled.header`
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`
 export const Endereco = styled.p`
-  width: 328px;
-  height: 18px;
+
   margin: 0 0 8px;
   font-family: Roboto;
   font-size: 16px;
@@ -25,8 +34,7 @@ export const Endereco = styled.p`
   color: #b8b8b8;
 `
 export const Rua = styled.p`
-   width: 328px;
-  height: 18px;
+
   margin: 8px 0 0;
   font-family: Roboto;
   font-size: 16px;

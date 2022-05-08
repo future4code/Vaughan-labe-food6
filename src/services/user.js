@@ -2,15 +2,15 @@ import axios from "axios";
 import { BASE_URL } from "../constants/urls";
 import { goToHomePage, goToSignup } from "../router/coordinator";
 
-export const login = (body, navigate) => {
-  axios
-    .post(`${BASE_URL}/rappi4B/login`, body)
-    .then((res) => {
-      localStorage.setItem("tokenaddress", res.data.token);
-      goToHomePage(navigate);
-    })
-    .catch((err) => {
-      alert(err.response.data.message + ", crie sua conta!");
-      goToSignup(navigate);
-    });
+export const login = async (body, navigate) => {
+
+  try {
+    const res = await axios.post(`${BASE_URL}/rappi4B/login`, body)
+    console.log(res.data.token)
+    localStorage.setItem("token", res.data.token);
+    goToHomePage(navigate);
+
+  } catch (error) {
+    alert(error)
+  } 
 };

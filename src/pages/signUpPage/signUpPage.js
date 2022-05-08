@@ -1,28 +1,32 @@
 import { TextField } from "@material-ui/core";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useHistory, useNavigate } from "react-router-dom";
 import { useForm } from "../../hook/useForm";
 import { SignUp } from "../../hook/useRequestData";
 import { Button, InputContainer, LogoImage, ScreenContainer } from "./styled";
 
 import logo1 from "../../assets/logo1.png"
+import { LoadingButton } from "@mui/lab";
 
 
 export const SignUpPage = () => {
     const [form, onChange] = useForm({ name: "", email: "", cpf: "", password: "" })
     const navigate = useNavigate()
     const [confirmPassword, setconfirmPassword] = useState("")
+    const [loading, setLoading] = React.useState(false);
 
-    const onSubmitForm = (event) => {
+
+    const onSubmitForm = async (event) => {
+        setLoading(true)
         event.preventDefault()
         localStorage.getItem("token")
         if (form.password === confirmPassword) {
-            SignUp(form, navigate)
-          
+            await SignUp(form, navigate)
+            setLoading(false)
         }
         else
-        alert("Senhas diferentes")
-         
+            alert("Senhas diferentes")
+
     }
 
     const onChangeConfirmPassword = (event) => {
@@ -34,7 +38,7 @@ export const SignUpPage = () => {
 
         <ScreenContainer>
             <InputContainer>
-                
+
                 <LogoImage src={logo1} />
                 <h3>Cadastrar</h3>
                 <form onSubmit={onSubmitForm}>
@@ -115,13 +119,15 @@ export const SignUpPage = () => {
                     ></TextField>
 
 
-                    <Button
-                        variant={'contained'}
-                        type={"submit"}
+                    <LoadingButton
+                        loading={loading}
+                        loadingPosition="end"
+                        variant="contained"
                         fullWidth
-                        color={'default'}
+                        type="submit"
                     >
-                        Criar</Button>
+                        Criar
+                    </LoadingButton>
 
 
 

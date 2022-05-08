@@ -1,25 +1,28 @@
 import React from "react";
 import { useForm } from "../../hook/useForm";
-import { useNavigate } from "react-router-dom";
+import { useHistory, useNavigate } from "react-router-dom";
 import { Button, InputContainer, ScreenContainer } from "./styled";
 import { TextField } from "@material-ui/core";
 import back from "../../assets/back.png"
 import { addAddress } from "../../hook/useRequestData";
 import { goToSignup } from "../../router/coordinator";
+import LoadingButton from '@mui/lab/LoadingButton';
 
 export const AddressPage = () => {
 
     const [form, onChange] = useForm({ street: "", number: "", neighbourhood: "", city: "", state: "", complement: "" })
     const navigate = useNavigate()
-
-    const onSubmitAddress = (event) => {
+    const [loading, setLoading] = React.useState(false);
+    const onSubmitAddress = async (event) => {
+        setLoading(true)
         event.preventDefault()
         localStorage.getItem("token")
-        addAddress(form, navigate)
+        await addAddress(form, navigate)
+        setLoading(false)
     }
     return (
         <ScreenContainer>
-                <h3> <img src={back} alt='navegar' onClick={()=> goToSignup(navigate)}></img> Meu endereço</h3>
+            <h3> <img src={back} alt='navegar' onClick={() => goToSignup(navigate)}></img> Meu endereço</h3>
 
             <InputContainer>
 
@@ -101,13 +104,15 @@ export const AddressPage = () => {
                         margin="dense"
                     >
                     </TextField>
-                    <Button
-                        variant={'contained'}
-                        type={"submit"}
+                    <LoadingButton
+                        loading={loading}
+                        loadingPosition="end"
+                        variant="contained"
                         fullWidth
-                        color={'default'}
+                        type="submit"
                     >
-                        Cadastrar</Button>
+                        Cadastrar
+                    </LoadingButton>
                 </form>
             </InputContainer>
         </ScreenContainer>

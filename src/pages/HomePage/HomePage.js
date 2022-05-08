@@ -1,14 +1,16 @@
 import axios from "axios";
 import React from "react";
 import { BASE_URL } from "../../constants/urls";
-import { Card, Buscar, Div, Img, ImgSearch, Name, P, Rectangle, Rectangle2 } from "./styled";
+import { Card, Buscar, Div, Img, ImgSearch, Name, P, Rectangle, Rectangle2, Home, Container, ImageSIZE, OrangeName, ContainerLogo } from "./styled";
 import { useEffect, useState } from "react";
 import search from "../../assets/search.png"
 import { useProtectedPage } from "../../hook/useProtectPage";
 import { goToDetails } from "../../router/coordinator";
-import { useNavigate } from "react-router-dom";
+import { useHistory, useNavigate } from "react-router-dom";
 import { Filter } from "../../components/filter/Filter";
 import { Footer } from "../../components/Footer";
+import  logo  from '../../assets/logo-future-eats-invert.png'
+
 
 export const HomePage = () => {
     useProtectedPage()
@@ -19,21 +21,21 @@ export const HomePage = () => {
 
     const listarRestaurantes = () => {
         const token = localStorage.getItem("tokenaddress")
-    
-       
+
+
         axios
-        .get(`${BASE_URL}/rappi4B/restaurants`,
+            .get(`${BASE_URL}/rappi4B/restaurants`,
                 {
                     headers: {
                         auth: token
                     }
                 })
-        .then((resposta) => {
-            setPosts(resposta.data.restaurants)
-        })
-        .catch((erro) => {
-            console.log(erro.response)
-        })
+            .then((resposta) => {
+                setPosts(resposta.data.restaurants)
+            })
+            .catch((erro) => {
+                console.log(erro.response)
+            })
     }
     useEffect(() => {
         listarRestaurantes()
@@ -41,7 +43,7 @@ export const HomePage = () => {
     const onClickCard = (id) => {
 
         goToDetails(navigate, id)
-      }
+    }
     const filteredPosts = posts.filter((post) => {
         if (!searchRestaurant) {
             return true
@@ -53,9 +55,9 @@ export const HomePage = () => {
     })
     const cardsRestaurantes = filteredPosts.map((post) => {
         return <Card key={post.id}>
-            <a onClick={()=> onClickCard(post.id)}><Img src={post.logoUrl}></Img></a>
-            <Name>{post.name}</Name>
+            <a onClick={() => onClickCard(post.id)}><ImageSIZE><Img src={post.logoUrl}></Img></ImageSIZE></a>
             <Buscar>
+            <OrangeName>{post.name}</OrangeName>
                 <Div>
                     {post.deliveryTime} min
                 </Div>
@@ -67,25 +69,26 @@ export const HomePage = () => {
     })
     return (
 
-        <div>
-            <P>Rappi4</P>
+        <Home>
+             <ContainerLogo><P src={logo} alt='Rappi4' /></ContainerLogo>
             <hr></hr>
             <Buscar>
-                <ImgSearch src={search}></ImgSearch>
-                <Filter
-                    cards={cardsRestaurantes}
-                    setSearchRestaurant={setSearchRestaurant}
-                    searchRestaurant={searchRestaurant}
-                ></Filter>
+                <Container>
+                    <ImgSearch src={search}></ImgSearch>
+                    <Filter
+                        cards={cardsRestaurantes}
+                        setSearchRestaurant={setSearchRestaurant}
+                        searchRestaurant={searchRestaurant}
+                    ></Filter>
+                </Container>
             </Buscar>
 
             <Rectangle2>
                 {cardsRestaurantes}
             </Rectangle2>
-            
-            <Footer/>
-        </div>
 
+            <Footer tela={0}/>
+        </Home>
     )
 }
 

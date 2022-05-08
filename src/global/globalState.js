@@ -3,13 +3,14 @@ import { useState } from "react"
 import React from 'react';
 
 const GlobalState = (props) => {
-    const [cart, setCart] = useState('testando estado global')
-    const [ teste, setTest ] = useState('outro estado')
+    
+    const [cart, setCart] = useState([])
+
     
     return (
         <GlobalStateContext.Provider value={
             {
-                cart, setCart, teste, setTest
+                cart, setCart
             }
         }>
             {props.children}
