@@ -57,7 +57,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - Paulo Tarso
 
 ---
-link para o surge :   quixotic-clock.surge.sh
+link para o surge :   resonant-balance.surge.sh
 
 link para o trello https://trello.com/b/BRnf6zd0/labfood
 ---
